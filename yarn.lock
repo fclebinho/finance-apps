@@ -56,6 +56,15 @@
     ora "5.4.1"
     rxjs "6.6.7"
 
+"@apollo/federation@^0.30.0":
+  version "0.30.0"
+  resolved "https://registry.yarnpkg.com/@apollo/federation/-/federation-0.30.0.tgz#8f21005aa35364b73283d737aeea6cac09101830"
+  integrity sha512-z255abB6EJGt7W+ffMgYwt8IGR/n3FpFv6WS6htV3F1h4IeIOynZQT5FrrJf5cuhDueMkW1ORaO96jcfmJETgg==
+  dependencies:
+    apollo-graphql "^0.9.3"
+    apollo-server-types "^3.0.2"
+    lodash.xorby "^4.7.0"
+
 "@apollo/protobufjs@1.2.2":
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/@apollo/protobufjs/-/protobufjs-1.2.2.tgz#4bd92cd7701ccaef6d517cdb75af2755f049f87c"
@@ -1617,7 +1626,7 @@ apollo-datasource@^3.1.0:
     apollo-server-caching "^3.1.0"
     apollo-server-env "^4.0.3"
 
-apollo-graphql@^0.9.0:
+apollo-graphql@^0.9.0, apollo-graphql@^0.9.3:
   version "0.9.3"
   resolved "https://registry.yarnpkg.com/apollo-graphql/-/apollo-graphql-0.9.3.tgz#1ca6f625322ae10a66f57a39642849a07a7a5dc9"
   integrity sha512-rcAl2E841Iko4kSzj4Pt3PRBitmyq1MvoEmpl04TQSpGnoVgl1E/ZXuLBYxMTSnEAm7umn2IsoY+c6Ll9U/10A==
@@ -1703,7 +1712,7 @@ apollo-server-plugin-base@^3.2.0:
   dependencies:
     apollo-server-types "^3.2.0"
 
-apollo-server-types@^3.2.0:
+apollo-server-types@^3.0.2, apollo-server-types@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/apollo-server-types/-/apollo-server-types-3.2.0.tgz#6243b34d35fbb09ded2cc84bf7e5f59968ccfa21"
   integrity sha512-Fh7QP84ufDZHbLzoLyyxyzznlW8cpgEZYYkGsS1i36zY4VaAt5OUOp1f+FxWdLGehq0Arwb6D1W7y712IoZ/JQ==
@@ -4090,6 +4099,11 @@ lodash.truncate@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.truncate/-/lodash.truncate-4.4.2.tgz#5a350da0b1113b837ecfffd5812cbe58d6eae193"
   integrity sha1-WjUNoLERO4N+z//VgSy+WNbq4ZM=
+
+lodash.xorby@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/lodash.xorby/-/lodash.xorby-4.7.0.tgz#9c19a6f9f063a6eb53dd03c1b6871799801463d7"
+  integrity sha1-nBmm+fBjputT3QPBtocXmYAUY9c=
 
 lodash@4.17.21, lodash@4.x, lodash@^4.17.19, lodash@^4.17.21, lodash@^4.7.0:
   version "4.17.21"

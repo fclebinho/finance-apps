@@ -1,5 +1,11 @@
 import { FilterableField } from '@nestjs-query/query-graphql';
-import { ObjectType, Field, ID, GraphQLISODateTime } from '@nestjs/graphql';
+import {
+  ObjectType,
+  Field,
+  ID,
+  GraphQLISODateTime,
+  Directive,
+} from '@nestjs/graphql';
 import {
   PrimaryGeneratedColumn,
   Column,
@@ -10,6 +16,7 @@ import {
 
 @Entity()
 @ObjectType()
+@Directive('@key(fields: "id")')
 export class Entry {
   @PrimaryGeneratedColumn('uuid')
   @Field(() => ID, { description: 'Example field (placeholder)' })

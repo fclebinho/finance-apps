@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { GraphQLModule } from '@nestjs/graphql';
+import { GraphQLFederationModule } from '@nestjs/graphql';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
@@ -18,7 +18,7 @@ import { EntryModule } from './entry/entry.module';
       synchronize: true,
       logging: true,
     }),
-    GraphQLModule.forRoot({
+    GraphQLFederationModule.forRoot({
       autoSchemaFile: true,
     }),
     EntryModule,
