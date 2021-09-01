@@ -1,12 +1,5 @@
 {
   "version": 2,
-  "env": {
-      "POSTGRES_URL": "@POSTGRES_URL",
-
-      "KAFKA_CLIENT_ID": "kafkaSample",
-      "KAFKA_BROKERS": "localhost:29092",
-      "KAFKA_GROUP_ID": "my-kafka-consumer"
-  },
   "builds": [
       {
           "src": "src/main.ts",
