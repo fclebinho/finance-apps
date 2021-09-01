@@ -4,51 +4,43 @@ import {
   Field,
   ID,
   GraphQLISODateTime,
-  Directive,
   registerEnumType,
 } from '@nestjs/graphql';
 import {
-  PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
-  UpdateDateColumn,
   Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
-export enum EntryType {
-  DEBT = 'debt',
-  CREDIT = 'credit',
+export enum AccountType {
+  CHECKING_ACCOUNT = 1,
+  SAVINGS_ACCOUNT = 2,
+  CREDIT_ACCOUNT = 3,
 }
 
-registerEnumType(EntryType, {
-  name: 'EntryType',
+registerEnumType(AccountType, {
+  name: 'AccountType',
   description: 'The supported entry types.',
 });
 
-export const entryTypeResolver: Record<keyof typeof EntryType, any> = {
-  CREDIT: EntryType.CREDIT,
-  DEBT: EntryType.DEBT,
+export const accountTypeResolver: Record<keyof typeof AccountType, any> = {
+  CHECKING_ACCOUNT: AccountType.CHECKING_ACCOUNT,
+  SAVINGS_ACCOUNT: AccountType.SAVINGS_ACCOUNT,
+  CREDIT_ACCOUNT: AccountType.CREDIT_ACCOUNT,
 };
 
 @Entity()
 @ObjectType()
-@Directive('@key(fields: "id")')
-export class Entry {
-  @PrimaryGeneratedColumn('uuid')
+export class Account {
   @Field(() => ID, { description: 'Example field (placeholder)' })
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  @FilterableField(() => GraphQLISODateTime)
-  due_date!: Date;
-
-  @Column()
-  @Field()
-  description: string;
-
-  @Column()
-  @FilterableField((type) => EntryType)
-  kind: EntryType;
+  @FilterableField((type) => AccountType)
+  kind: AccountType;
 
   @CreateDateColumn()
   @Field(() => GraphQLISODateTime)

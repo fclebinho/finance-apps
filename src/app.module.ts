@@ -7,6 +7,8 @@ import { AppService } from './app.service';
 import { EntryModule } from './entry/entry.module';
 import { CustomerModule } from './customer/customer.module';
 import { entryTypeResolver } from './entry/entities/entry.entity';
+import { AccountModule } from './account/account.module';
+import { accountTypeResolver } from './account/entities/account.entity';
 
 @Module({
   imports: [
@@ -24,10 +26,12 @@ import { entryTypeResolver } from './entry/entities/entry.entity';
       autoSchemaFile: true,
       resolvers: {
         EntryType: entryTypeResolver,
+        AccountType: accountTypeResolver,
       },
     }),
     EntryModule,
     CustomerModule,
+    AccountModule,
   ],
   controllers: [AppController],
   providers: [AppService],
