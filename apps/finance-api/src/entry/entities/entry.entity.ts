@@ -7,16 +7,12 @@ import {
   Directive,
   registerEnumType,
 } from '@nestjs/graphql';
-import { Account } from 'src/account/entities/account.entity';
 import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
   Entity,
-  ManyToOne,
-  JoinColumn,
-  ObjectType as ObjectTypeORM,
 } from 'typeorm';
 
 export enum EntryType {

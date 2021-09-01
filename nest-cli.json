@@ -1,4 +1,30 @@
 {
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src"
+  "sourceRoot": "apps/finance-api/src",
+  "monorepo": true,
+  "root": "apps/finance-api",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/finance-api/tsconfig.app.json"
+  },
+  "projects": {
+    "finance-api": {
+      "type": "application",
+      "root": "apps/finance-api",
+      "entryFile": "main",
+      "sourceRoot": "apps/finance-api/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/finance-api/tsconfig.app.json"
+      }
+    },
+    "kafka-app": {
+      "type": "application",
+      "root": "apps/kafka-app",
+      "entryFile": "main",
+      "sourceRoot": "apps/kafka-app/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/kafka-app/tsconfig.app.json"
+      }
+    }
+  }
 }
