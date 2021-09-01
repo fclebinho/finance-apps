@@ -15,9 +15,7 @@ import { accountTypeResolver } from './account/entities/account.entity';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      database: process.env.PG_DATABASE,
-      username: process.env.PG_USERNAME,
-      password: process.env.PG_PASSWORD ?? null,
+      url: process.env.POSTGRES_URL,
       autoLoadEntities: true,
       synchronize: true,
       logging: true,

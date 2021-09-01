@@ -1,9 +1,7 @@
 {
   "version": 2,
   "env": {
-      "PG_DATABASE": "finance_api",
-      "PG_USERNAME": "root",
-      "PG_PASSWORD": "",
+      "POSTGRES_URL": "postgres://root@localhost:5432/finance_api",
 
       "KAFKA_CLIENT_ID": "kafkaSample",
       "KAFKA_BROKERS": "localhost:29092",
