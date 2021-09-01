@@ -1,0 +1,30 @@
+{
+  "version": 2,
+  "env": {
+      "PG_DATABASE": "finance_api",
+      "PG_USERNAME": "root",
+      "PG_PASSWORD": "",
+
+      "KAFKA_CLIENT_ID": "kafkaSample",
+      "KAFKA_BROKERS": "localhost:29092",
+      "KAFKA_GROUP_ID": "my-kafka-consumer"
+  },
+  "builds": [
+      {
+          "src": "src/main.ts",
+          "use": "@vercel/node"
+      }
+  ],
+  "routes": [
+      {
+          "src": "/(.*)",
+          "dest": "src/main.ts",
+          "methods": [
+              "GET",
+              "POST",
+              "PUT",
+              "DELETE"
+          ]
+      }
+  ]
+}
