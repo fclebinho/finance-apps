@@ -1,8 +1,8 @@
 import { NestFactory } from '@nestjs/core';
-import { ApolloServerModule } from './apollo-server.module';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(ApolloServerModule);
+  const app = await NestFactory.create(AppModule);
   await app.listen(3000);
 }
 bootstrap();

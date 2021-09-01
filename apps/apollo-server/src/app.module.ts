@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { GraphQLGatewayModule } from '@nestjs/graphql';
-import { ApolloServerController } from './apollo-server.controller';
-import { ApolloServerService } from './apollo-server.service';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
@@ -18,7 +18,7 @@ import { ApolloServerService } from './apollo-server.service';
       },
     }),
   ],
-  controllers: [ApolloServerController],
-  providers: [ApolloServerService],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class ApolloServerModule {}
+export class AppModule {}

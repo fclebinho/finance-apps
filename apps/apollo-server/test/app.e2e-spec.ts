@@ -1,14 +1,14 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { ApolloServerModule } from './../src/ApolloServer.module';
+import { AppModule } from './../src/ApolloServer.module';
 
-describe('ApolloServerController (e2e)', () => {
+describe('AppController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [ApolloServerModule],
+      imports: [AppModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
