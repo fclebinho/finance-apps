@@ -8,6 +8,7 @@ import serviceList from './service.list';
       server: {
         // ... Apollo server options
         cors: true,
+        playground: true,
       },
       gateway: {
         serviceList,
