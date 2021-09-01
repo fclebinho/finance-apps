@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@apollo/federation": "^0.30.0",
+    "@apollo/gateway": "^0.39.0",
     "@nestjs-query/core": "^0.28.1",
     "@nestjs-query/query-graphql": "^0.28.1",
     "@nestjs-query/query-typeorm": "^0.28.1",

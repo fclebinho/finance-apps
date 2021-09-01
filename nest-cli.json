@@ -25,6 +25,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/kafka-app/tsconfig.app.json"
       }
+    },
+    "apollo-server": {
+      "type": "application",
+      "root": "apps/apollo-server",
+      "entryFile": "main",
+      "sourceRoot": "apps/apollo-server/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/apollo-server/tsconfig.app.json"
+      }
     }
   }
 }
