@@ -6,15 +6,19 @@ import {
   GraphQLISODateTime,
 } from '@nestjs/graphql';
 import { EntryType } from '../entities/entry.entity';
+import { FilterableField } from '@nestjs-query/query-graphql';
 
 @InputType()
 export class UpdateEntryInput extends PartialType(CreateEntryInput) {
   @Field(() => GraphQLISODateTime, { nullable: true })
-  due_date!: Date;
+  dueDate!: Date;
 
   @Field({ nullable: true })
   description: string;
 
-  @Field((type) => EntryType, { nullable: true })
+  @Field(() => EntryType, { nullable: true })
   kind: EntryType;
+
+  @FilterableField({ nullable: true })
+  accountId: string;
 }

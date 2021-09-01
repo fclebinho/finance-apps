@@ -7,12 +7,16 @@ import {
   Directive,
   registerEnumType,
 } from '@nestjs/graphql';
+import { Account } from 'src/account/entities/account.entity';
 import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
   UpdateDateColumn,
   Entity,
+  ManyToOne,
+  JoinColumn,
+  ObjectType as ObjectTypeORM,
 } from 'typeorm';
 
 export enum EntryType {
@@ -38,23 +42,27 @@ export class Entry {
   @Field(() => ID, { description: 'Example field (placeholder)' })
   id: string;
 
-  @Column()
+  @Column({ name: 'due_date' })
   @FilterableField(() => GraphQLISODateTime)
-  due_date!: Date;
+  dueDate!: Date;
 
   @Column()
   @Field()
   description: string;
 
   @Column()
-  @FilterableField((type) => EntryType)
+  @FilterableField(() => EntryType)
   kind: EntryType;
 
-  @CreateDateColumn()
+  @Column({ nullable: true, name: 'account_id' })
+  @FilterableField({ nullable: true })
+  accountId: string;
+
+  @CreateDateColumn({ name: 'created_at' })
   @Field(() => GraphQLISODateTime)
   createdAt!: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'updated_at' })
   @Field(() => GraphQLISODateTime)
   updatedAt!: Date;
 }

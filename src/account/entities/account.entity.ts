@@ -18,6 +18,8 @@ export enum AccountType {
   CHECKING_ACCOUNT = 1,
   SAVINGS_ACCOUNT = 2,
   CREDIT_ACCOUNT = 3,
+  VOUCHER_ACCOUNT = 4,
+  WALLET_ACCOUNT = 5,
 }
 
 registerEnumType(AccountType, {
@@ -29,6 +31,8 @@ export const accountTypeResolver: Record<keyof typeof AccountType, any> = {
   CHECKING_ACCOUNT: AccountType.CHECKING_ACCOUNT,
   SAVINGS_ACCOUNT: AccountType.SAVINGS_ACCOUNT,
   CREDIT_ACCOUNT: AccountType.CREDIT_ACCOUNT,
+  VOUCHER_ACCOUNT: AccountType.VOUCHER_ACCOUNT,
+  WALLET_ACCOUNT: AccountType.WALLET_ACCOUNT,
 };
 
 @Entity()
@@ -39,14 +43,18 @@ export class Account {
   id: string;
 
   @Column()
-  @FilterableField((type) => AccountType)
+  @FilterableField(() => AccountType)
   kind: AccountType;
 
-  @CreateDateColumn()
+  @Column({ name: 'user_id' })
+  @FilterableField()
+  userId: string;
+
+  @CreateDateColumn({ name: 'created_at' })
   @Field(() => GraphQLISODateTime)
   createdAt!: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'updated_at' })
   @Field(() => GraphQLISODateTime)
   updatedAt!: Date;
 }
