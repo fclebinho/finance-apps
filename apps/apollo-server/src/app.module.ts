@@ -5,13 +5,8 @@ import serviceList from './service.list';
 @Module({
   imports: [
     GraphQLGatewayModule.forRoot({
-      server: {
-        // ... Apollo server options
-        cors: true,
-      },
-      gateway: {
-        serviceList,
-      },
+      server: { cors: true },
+      gateway: { serviceList },
     }),
   ],
   controllers: [],
