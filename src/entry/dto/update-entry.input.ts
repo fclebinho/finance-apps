@@ -5,6 +5,7 @@ import {
   PartialType,
   GraphQLISODateTime,
 } from '@nestjs/graphql';
+import { EntryType } from '../entities/entry.entity';
 
 @InputType()
 export class UpdateEntryInput extends PartialType(CreateEntryInput) {
@@ -14,6 +15,6 @@ export class UpdateEntryInput extends PartialType(CreateEntryInput) {
   @Field({ nullable: true })
   description: string;
 
-  @Field({ nullable: true })
-  kind: string;
+  @Field((type) => EntryType, { nullable: true })
+  kind: EntryType;
 }

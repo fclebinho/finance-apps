@@ -5,6 +5,7 @@ import {
   ID,
   GraphQLISODateTime,
   Directive,
+  registerEnumType,
 } from '@nestjs/graphql';
 import {
   PrimaryGeneratedColumn,
@@ -13,6 +14,21 @@ import {
   UpdateDateColumn,
   Entity,
 } from 'typeorm';
+
+export enum EntryType {
+  DEBT = 'debt',
+  CREDIT = 'credit',
+}
+
+registerEnumType(EntryType, {
+  name: 'EntryType',
+  description: 'The supported entry types.',
+});
+
+export const entryTypeResolver: Record<keyof typeof EntryType, any> = {
+  CREDIT: 'credit',
+  DEBT: 'debt',
+};
 
 @Entity()
 @ObjectType()
@@ -31,8 +47,8 @@ export class Entry {
   description: string;
 
   @Column()
-  @Field()
-  kind: string;
+  @FilterableField((type) => EntryType)
+  kind: EntryType;
 
   @CreateDateColumn()
   @Field(() => GraphQLISODateTime)

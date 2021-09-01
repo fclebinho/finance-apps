@@ -5,6 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { EntryModule } from './entry/entry.module';
+import { CustomerModule } from './customer/customer.module';
+import { entryTypeResolver } from './entry/entities/entry.entity';
 
 @Module({
   imports: [
@@ -20,8 +22,12 @@ import { EntryModule } from './entry/entry.module';
     }),
     GraphQLFederationModule.forRoot({
       autoSchemaFile: true,
+      resolvers: {
+        EntryType: entryTypeResolver,
+      },
     }),
     EntryModule,
+    CustomerModule,
   ],
   controllers: [AppController],
   providers: [AppService],
