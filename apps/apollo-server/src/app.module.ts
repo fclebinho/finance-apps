@@ -8,7 +8,12 @@ import serviceList from './service.list';
       server: {
         // ... Apollo server options
         cors: true,
-        playground: true,
+        introspection: true,
+        playground: {
+          settings: {
+            'editor.theme': 'light',
+          },
+        },
       },
       gateway: {
         serviceList,
