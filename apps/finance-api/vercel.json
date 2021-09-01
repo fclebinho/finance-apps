@@ -1,7 +1,7 @@
 {
   "version": 2,
   "env": {
-      "POSTGRES_URL": "postgres://root@localhost:5432/finance_api",
+      "POSTGRES_URL": "@POSTGRES_URL",
 
       "KAFKA_CLIENT_ID": "kafkaSample",
       "KAFKA_BROKERS": "localhost:29092",
