@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLGatewayModule } from '@nestjs/graphql';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import serviceList from './service.list';
 
 @Module({
   imports: [
@@ -11,14 +10,11 @@ import { AppService } from './app.service';
         cors: true,
       },
       gateway: {
-        serviceList: [
-          { name: 'users', url: 'http://user-service/graphql' },
-          { name: 'posts', url: 'http://post-service/graphql' },
-        ],
+        serviceList,
       },
     }),
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
